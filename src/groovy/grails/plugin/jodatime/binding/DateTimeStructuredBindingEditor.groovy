@@ -42,7 +42,8 @@ class DateTimeStructuredBindingEditor implements StructuredBindingEditor {
     Object getPropertyValue(Object obj, String propertyName, DataBindingSource source) {
         requiredFields.each {
             if (!source["${propertyName}_${it}"]) {
-                throw new IllegalArgumentException("Can't populate a $type without a $it")
+                log.error "Can't populate a $type without a $it"
+                //throw new IllegalArgumentException("Can't populate a $type without a $it")
             }
         }
 
@@ -62,7 +63,8 @@ class DateTimeStructuredBindingEditor implements StructuredBindingEditor {
             }
             return dt.toDateTime()."to$type.simpleName"()
         } catch (NumberFormatException nfe) {
-            throw new IllegalArgumentException("Unable to parse structured date from request for $type [$propertyName]")
+            log.error "Unable to parse structured date from request for $type [$propertyName]"
+            //throw new IllegalArgumentException("Unable to parse structured date from request for $type [$propertyName]")
         }
     }
 }
