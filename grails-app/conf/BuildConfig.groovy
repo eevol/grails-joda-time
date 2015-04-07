@@ -2,6 +2,11 @@ grails.project.work.dir = 'target'
 grails.project.class.dir = 'target/classes'
 grails.project.test.class.dir = 'target/test-classes'
 grails.project.test.reports.dir = 'target/test-reports'
+
+grails.project.repos.eevolPublic.url = "http://maven.eevol.lu/nexus/content/repositories/eevol-grails-public/"
+grails.project.repos.snapshots.url = "http://maven.eevol.lu/nexus/content/repositories/snapshots/"
+grails.project.repos.default = "snapshots"
+
 grails.project.dependency.resolution = {
 
 	inherits 'global'
@@ -23,7 +28,7 @@ grails.project.dependency.resolution = {
 	}
 
 	plugins {
-		build ':release:2.2.0', ':rest-client-builder:1.0.3', {
+		build ':release:3.1.1', ':rest-client-builder:1.0.3', {
 			export = false
 		}
 	}
