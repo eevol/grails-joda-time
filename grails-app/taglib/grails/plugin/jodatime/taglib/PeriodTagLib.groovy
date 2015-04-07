@@ -15,7 +15,8 @@
  */
 package grails.plugin.jodatime.taglib
 
-import org.codehaus.groovy.grails.commons.ConfigurationHolder
+
+import grails.util.Holders
 import org.joda.time.Duration
 import org.joda.time.DurationFieldType
 import org.joda.time.Period
@@ -73,8 +74,8 @@ class PeriodTagLib {
 		PeriodType periodType
 		if (fields) {
 			periodType = getPeriodTypeForFields(fields)
-		} else if (ConfigurationHolder.config?.jodatime?.periodpicker?.default?.fields) {
-			periodType = getPeriodTypeForFields(ConfigurationHolder.config.jodatime.periodpicker.default.fields)
+		} else if (Holders.config?.jodatime?.periodpicker?.default?.fields) {
+			periodType = getPeriodTypeForFields(Holders.config.jodatime.periodpicker.default.fields)
 		} else {
 			periodType = defaultPeriodType
 		}
